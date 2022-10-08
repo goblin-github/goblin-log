@@ -3,11 +3,12 @@
 # 依赖导入
 
 ```xml
-        <dependency>
-            <groupId>com.goblin</groupId>
-            <artifactId>goblin-log</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
+<dependency>
+    <groupId>com.goblin</groupId>
+    <artifactId>goblin-log</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
 ```
 
 # 项目配置
@@ -20,3 +21,8 @@ logback:
   sensitive: true
 ```
 
+# 其他
+
+1. 由于日志脱敏依赖正则表达式进行匹配，所以依赖底层日志进行脱敏并不是最佳处理方案，若想脱敏规则完全符合预期，则应在业务应用层进行处理
+2. 日志通过多环境进行配置，`default`,`prod`环境指定为`INFO`等级，只输出`info.log`和`error.log`;其他环境下均为`DEBUG`
+   等级，输出`console`、`info.log`、`error.log`、`warn.log`、`debug.log`
