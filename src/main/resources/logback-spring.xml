@@ -201,14 +201,21 @@ debug：是否打印 logback 内部的运行日志，默认值为 false，一般
     </springProfile>
 
     <!-- 多环境配置 -->
-    <springProfile name="dev,test,pre">
+    <springProfile name="test,pre">
         <!-- root -->
         <root level="DEBUG">
-            <appender-ref ref="CONSOLE"/>
             <appender-ref ref="DEBUG_LOG_ASYNC"/>
             <appender-ref ref="INFO_LOG_ASYNC"/>
             <appender-ref ref="WARN_LOG_ASYNC"/>
             <appender-ref ref="ERROR_LOG_ASYNC"/>
+        </root>
+    </springProfile>
+
+    <!-- 多环境配置 -->
+    <springProfile name="dev">
+        <!-- root -->
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
         </root>
     </springProfile>
 </configuration>
